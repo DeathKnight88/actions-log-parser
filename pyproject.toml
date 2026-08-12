@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "actions-log-parser"
+version = "0.1.0"
+description = "Turn a GitHub Actions run into a structured CI failure summary."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "RateRight CI Triage Worker" }]
+dependencies = []
+
+[project.scripts]
+actions-log-parser = "actions_log_parser.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.pylint.main]
+py-version = "3.10"
+source-roots = ["src"]
+ignore-paths = ["tests"]
+
+[tool.pylint.format]
+max-line-length = 100
